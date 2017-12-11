@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<title>Ricerca</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Pizzeria</title>
+		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
 		<!--<script>
 			function controllo_campi()
 			{
@@ -18,29 +18,17 @@
 	<body>
 		<?php
 			if(isset($_POST["lim"]))
-			{
 				$lim=$_POST["lim"];
-			}
 			else
-			{
 				$lim=10;
-			}
 			if(isset($_POST["cit"]))
-			{
 				$cit=$_POST["cit"];
-			}
 			else
-			{
 				$cit="bergamo";
-			}
 			if(isset($_POST["que"]))
-			{
 				$que=$_POST["que"];
-			}
 			else
-			{
 				$que="pizzeria";
-			}
 			# Questo script chiama un'API e la inserisce in una tabella 
 			# Indirizzo dell'API da richiedere
 			$indirizzo_pagina="https://api.foursquare.com/v2/venues/search?v=20161016&query=$que&limit=$lim&intent=checkin&client_id=XTT32MSNDEPOVNS4SCCQEEHT4JJXB3P12AXWR50GNM4KUN1Q&client_secret=FIWH4MQRDDMZH4ZDWFD2XXAEXXTJXMN1SMMFRARQAKBX2L5N&near=$cit";
