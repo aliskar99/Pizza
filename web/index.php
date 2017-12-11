@@ -14,26 +14,27 @@
 		curl_setopt($chiamata, CURLOPT_RETURNTRANSFER, 1);
 		$json=curl_exec($chiamata) or die(curl_error());
 		$data = json_decode($json);
-		echo "<table>";
-		echo "<tr>";
-		echo "<th>PIZZERIA</th>";
-		echo "<th>LATITUDINE</th>";
-		echo "<th>LONGITUDINE</th>";
-		echo "</tr>";
+		echo("<h1>PIZZERIE A BERGAMO</h1>")
+		echo("<table>");
+		echo("<tr>");
+		echo("<th>PIZZERIA</th>");
+		echo("<th>LATITUDINE</th>");
+		echo("<th>LONGITUDINE</th>");
+		echo("</tr>");
 		for($i=0; $i<$n; $i++){	
-			echo "<tr>";
-			echo "<td>";
+			echo("<tr>");
+			echo("<td>");
 			echo $data->response->venues[$i]->name;
-			echo "</td>";
-			echo "<td>";
+			echo("</td>");
+			echo("<td>");
 			echo $data->response->venues[$i]->location->lat;
-			echo "</td>";
-			echo "<td>";
+			echo("</td>");
+			echo("<td>");
 			echo $data->response->venues[$i]->location->lng;
-			echo "</td>";
-			echo "</tr>";
+			echo("</td>");
+			echo("</tr>");
 		}
-		echo "</table>";
+		echo("</table>");
 		echo curl_error($chiamata);
 		curl_close($chiamata);
 	?>
