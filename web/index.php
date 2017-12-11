@@ -10,7 +10,7 @@
 		$richiesta="pizzeria";
 		# questo script chiama un'API e la inserisce in una tabella 
 		# Indirizzo dell'API da richiedere
-		$indirizzo_pagina="https://api.foursquare.com/v2/venues/search?v=20161016&query=$richiesta&nit=$n&intent=checkin&client_id=XTT32MSNDEPOVNS4SCCQEEHT4JJXB3P12AXWR50GNM4KUN1Q&client_secret=FIWH4MQRDDMZH4ZDWFD2XXAEXXTJXMN1SMMFRARQAKBX2L5N&near=$citta";
+		$indirizzo_pagina="https://api.foursquare.com/v2/venues/search?v=20161016&query=$richiesta&intent=checkin&client_id=XTT32MSNDEPOVNS4SCCQEEHT4JJXB3P12AXWR50GNM4KUN1Q&client_secret=FIWH4MQRDDMZH4ZDWFD2XXAEXXTJXMN1SMMFRARQAKBX2L5N&near=$citta";
 		# Codice di utilizzo di cURL
 		# chiamataiama l'API e la immagazzina in $json
 		$chiamata = curl_init() or die(curl_error());
