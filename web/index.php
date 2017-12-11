@@ -1,85 +1,64 @@
 <html>
 	<head>
 		<title>Pizzeria</title>
-		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
-		<!--<script>
-			function controllo_campi()
-			{
-				var valore=document.getElementById("lim").value;
-				var esito=false;
-				var verifica=/^\d{1,2}$/
-				if(document.getElementById("lim").value!=""&&document.getElementById("cit").value!=""&&document.getElementById("que").value!="")
-					if(valore.match(verifica)&&parseInt(valore)<51)
-						esito=true;
-				return esito;
-			}
-		</script>-->
+		<link rel="stylesheet" type="text/css" href="toptenstyle.css">
 	</head>
 	<body>
-		<?php
-			if(isset($_POST["lim"]))
-				$lim=$_POST["lim"];
-			else
-				$lim=10;
-			if(isset($_POST["cit"]))
-				$cit=$_POST["cit"];
-			else
-				$cit="bergamo";
-			if(isset($_POST["que"]))
-				$que=$_POST["que"];
-			else
-				$que="pizzeria";
-			# Questo script chiama un'API e la inserisce in una tabella 
-			# Indirizzo dell'API da richiedere
-			$indirizzo_pagina="https://api.foursquare.com/v2/venues/search?v=20161016&query=$que&limit=$lim&intent=checkin&client_id=XTT32MSNDEPOVNS4SCCQEEHT4JJXB3P12AXWR50GNM4KUN1Q&client_secret=FIWH4MQRDDMZH4ZDWFD2XXAEXXTJXMN1SMMFRARQAKBX2L5N&near=$cit";
-			# Codice di utilizzo di cURL
-			# Chiama l'API e la immagazzina in $json
-			$ch = curl_init() or die(curl_error());
-			curl_setopt($ch, CURLOPT_URL,$indirizzo_pagina);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			$json=curl_exec($ch) or die(curl_error());
-			# Decodifico la stringa json e la salvo nella variabile $data
-			$data = json_decode($json);
-			# Stampa della tabella delle pizzerie.
-			echo "<table>";
+	<?php
+		$n=10;
+		$citta="bergamo";
+		$richiamataiesta="pizzeria";
+		# questo script chiamataiama un'API e la inserisce in una tabella 
+		# Indirizzo dell'API da richiamataiedere
+		$indirizzo_pagina="https://api.foursquare.com/v2/venues/searchiamata?v=20161016&richiamataiestary=$richiamataiesta&nit=$n&intent=chiamataeckin&client_id=XTT32MSNDEPOVNS4SCCQEEHT4JJXB3P12AXWR50GNM4KUN1Q&client_secret=FIWH4MQRDDMZH4ZDWFD2XXAEXXTJXMN1SMMFRARQAKBX2L5N&near=$citta";
+		# Codice di utilizzo di cURL
+		# chiamataiama l'API e la immagazzina in $json
+		$chiamata = curl_init() or die(curl_error());
+		curl_setopt($chiamata, CURLOPT_URL,$indirizzo_pagina);
+		curl_setopt($chiamata, CURLOPT_RETURNTRANSFER, 1);
+		$json=curl_exec($chiamata) or die(curl_error());
+		# Decodifico la stringa json e la salvo nella variabile $data
+		$data = json_decode($json);
+		# Stampa della tabella delle pizzerie.
+		echo "<table>";
+			echo "<tr>";
+				echo "<th>PIZZERIA</th>";
+				echo "<th>LATITUDINE</th>";
+				echo "<th>LONGITUDINE</th>";
+			echo "</tr>";
+			for($i=0; $i<$n; $i++)
+			{	
 				echo "<tr>";
-					echo "<th>PIZZERIA</th>";
-					echo "<th>LATITUDINE</th>";
-					echo "<th>LONGITUDINE</th>";
+					echo "<td>";
+					echo $data->response->venues[$i]->name;
+					echo "</td>";
+					echo "<td>";
+					echo $data->response->venues[$i]->location->lat;
+					echo "</td>";
+					echo "<td>";
+					echo $data->response->venues[$i]->location->lng;
+					echo "</td>";
 				echo "</tr>";
-				for($i=0; $i<$lim; $i++)
-				{	
-					echo "<tr>";
-						echo "<td>";
-						echo $data->response->venues[$i]->name;
-						echo "</td>";
-						echo "<td>";
-						echo $data->response->venues[$i]->location->lat;
-						echo "</td>";
-						echo "<td>";
-						echo $data->response->venues[$i]->location->lng;
-						echo "</td>";
-					echo "</tr>";
-				}
-			echo "</table>";
-			# Stampa di eventuali errori
-			echo curl_error($ch);
-			curl_close($ch);
-			
-		/*	echo "<form id='forma' method='post' onsubmit='return controllo_campi();'><br/>";
-			echo "<table>";
-			echo "<tr>";
-			echo " <td>Numero elementi (1-50): </td><td><input type='text' value='$lim' name='lim' id='lim' /></td>";
-			echo "</tr>";
-			echo "<tr>";
-			echo " <td>Citta: </td><td><input type='text' value='$cit' name='cit' id='cit' /></td>";
-			echo "</tr>";
-			echo "<tr>";
-			echo " <td>Cosa stai cercando?: </td><td><input type='text' value='$que' name='que' id='que' /></td><br/>";
-			echo "</tr>";
-			echo "</table>";
-			echo " <input type='submit' value='Aggiorna tabella' class='btn'/>";
-			echo "</form>";*/
-		?>
+			}
+		echo "</table>";
+		# Stampa di eventuali errori
+		echo curl_error($chiamata);
+		curl_close($chiamata);
+
+	/*	echo "<form id='forma' method='post' onsubmit='return controllo_campi();'><br/>";
+		echo "<table>";
+		echo "<tr>";
+		echo " <td>Numero elementi (1-50): </td><td><input type='text' value='$n' name='n' id='n' /></td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo " <td>citta: </td><td><input type='text' value='$citta' name='citta' id='citta' /></td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo " <td>Cosa stai cercando?: </td><td><input type='text' value='$richiamataiesta' name='richiamataiesta' id='richiamataiesta' /></td><br/>";
+		echo "</tr>";
+		echo "</table>";
+		echo " <input type='submit' value='Aggiorna tabella' class='btn'/>";
+		echo "</form>";*/
+	?>
 	</body>
 </html>
