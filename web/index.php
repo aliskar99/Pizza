@@ -14,7 +14,7 @@
 		curl_setopt($chiamata, CURLOPT_RETURNTRANSFER, 1);
 		$json=curl_exec($chiamata) or die(curl_error());
 		$data = json_decode($json);
-		echo("<h1>PIZZERIE A BERGAMO</h1>")
+		echo("<h1>PIZZERIE A BERGAMO</h1>");
 		echo("<table>");
 		echo("<tr>");
 		echo("<th>PIZZERIA</th>");
