@@ -10,6 +10,8 @@ td{
 	text-align:left;
 }
 img{
+	height: 60px;
+	width: 60px;
 	opacity:0.3;
 	filter:alpha(opacity=30);
 }
