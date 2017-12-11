@@ -1,6 +1,7 @@
 table{
 	border:1px solid blue;
 	border-collapse:collapse;
+	background-color:lightyellow;
 	/*background-image:url("pizza.png");*/
 }
 td{
