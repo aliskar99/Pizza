@@ -1,10 +1,15 @@
 table{
-	border:1px solid black;
+	border:1px solid blue;
 	border-collapse:collapse;
-	height:5px;
+	background-color:lightyellow;
+	background-image:url("pizza.png");
 }
 td{
-	width:15%;
-	border:1px solid black;
+	padding:10px;
+	border:1px solid blue;
 	text-align:left;
+}
+img{
+	opacity:0.5;
+	filter:alpha(opacity=50);
 }
