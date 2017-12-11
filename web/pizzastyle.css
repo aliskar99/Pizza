@@ -3,6 +3,7 @@ table{
 	border-collapse:collapse;
 	background-color:lightyellow;
 	background-image:url("pizza.png");
+	background-color:rgba(200,200,200,0.8);
 }
 td{
 	padding:10px;
