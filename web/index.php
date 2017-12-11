@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Pizzerie di Bergamo</title>
-		<link rel="stylesheet" type="text/css" href="toptenstyle.css">
+		<link rel="stylesheet" type="text/css" href="pizzastyle.css">
 	</head>
 	<body>
 	<?php
