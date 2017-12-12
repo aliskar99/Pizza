@@ -15,7 +15,7 @@
 		$json=curl_exec($chiamata) or die(curl_error());
 		$data = json_decode($json);
 		echo("<h1>PIZZERIE A BERGAMO</h1>");
-		echo("<table>");
+		echo("<div><table>");
 		echo("<tr>");
 		echo("<th>PIZZERIA</th>");
 		echo("<th>LATITUDINE</th>");
@@ -34,7 +34,7 @@
 			echo("</td>");
 			echo("</tr>");
 		}
-		echo("</table>");
+		echo("</table></div>");
 		echo curl_error($chiamata);
 		curl_close($chiamata);
 	?>
