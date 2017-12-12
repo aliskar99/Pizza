@@ -1,17 +1,19 @@
 table{
 	border:1px solid blue;
 	border-collapse:collapse;
-	background-color:lightyellow;
-	/*background-image:url("pizza.png");*/
+	/*background-color:lightyellow;*/
 }
 td{
 	padding:10px;
 	border:1px solid blue;
 	text-align:left;
 }
-/*img{
+img{
 	height: 60px;
 	width: 60px;
 	opacity:0.3;
 	filter:alpha(opacity=30);
-}*/
+}
+div{
+	background-image:url("pizza.png");
+}
